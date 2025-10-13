@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: Open Sans, sans-serif;
   text-align: center;
   margin: 0;
   padding: 0;
@@ -9,8 +9,8 @@ body {
 }
 
 header {
-  background: linear-gradient(135deg, #aa940a, #f7f7f7); /* dark blue gradient */
-  padding: 12px 0;
+  background: linear-gradient(135deg, #d2ba1f, #f7f7f7); /* dark blue gradient */
+  padding: 0;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* soft drop shadow */
   display: flex;
   justify-content: center;
@@ -18,16 +18,17 @@ header {
 }
 
 #header-logo {
-  width: 50%;
+  width: 100%;
   height: auto;
-  min-width: 120px;
-  max-width: 220px;
-  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.3)); /* subtle glow */
-  transition: transform 0.3s ease;
+  min-width: 160px;
+  max-width: 450px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)); /* subtle glow */
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 #header-logo:hover {
-  transform: scale(1.05);
+  transform: scale(1.08);
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4));
 }
 
 /* Overview section */
@@ -360,4 +361,5 @@ header {
     width: 90%;
     transform: none;
   }
+
 }
