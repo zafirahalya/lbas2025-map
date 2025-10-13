@@ -1,0 +1,363 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background: url("images/background.png") no-repeat center center fixed;
+  background-size: cover;
+  color: rgb(0, 0, 0);
+}
+
+header {
+  background: linear-gradient(135deg, #aa940a, #f7f7f7); /* dark blue gradient */
+  padding: 12px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* soft drop shadow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#header-logo {
+  width: 50%;
+  height: auto;
+  min-width: 120px;
+  max-width: 220px;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.3)); /* subtle glow */
+  transition: transform 0.3s ease;
+}
+
+#header-logo:hover {
+  transform: scale(1.05);
+}
+
+/* Overview section */
+.levels {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.level-item {
+  width: 100%;
+  max-width: 800px; /* keeps nice size on large screens */
+}
+
+.level-item img {
+  width: 100%;
+  height: auto; /* prevents stretching */
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s, opacity 0.3s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.level-item img:hover {
+  transform: scale(1.03);
+  opacity: 0.95;
+}
+
+/* Responsive scaling for smaller screens */
+@media (max-width: 1024px) {
+  .level-item {
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 768px) {
+  .level-item {
+    max-width: 90%;
+  }
+  .level-item img {
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .level-item {
+    max-width: 95%;
+  }
+  .level-item img {
+    border-radius: 6px;
+  }
+}
+
+/* Lightbox */
+#lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: auto;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  padding: 40px 10px;
+}
+
+#lightbox.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-content {
+  position: relative;
+  background: white;
+  color: black;
+  border-radius: 15px;
+  padding: 25px 30px 30px;
+  max-width: 90%;
+  width: 480px;
+  text-align: center;
+  animation: fadeInZoom 0.5s ease;
+  margin: auto;
+}
+
+.lightbox-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #555;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.close-btn:hover {
+  transform: scale(1.2);
+  color: #ff4d4d;
+}
+
+/* Animations */
+@keyframes fadeInZoom {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.hidden {
+  display: none;
+}
+
+/* Text + element spacing inside level view */
+.arrow {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.booths-container {
+  margin-top: 10px;
+}
+
+/* Booth Buttons */
+.booth-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.booth-buttons button {
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0077b6, #00b4d8);
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.booth-buttons button:hover {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, #0096c7, #48cae4);
+}
+
+.booth-buttons button:active {
+  transform: scale(0.95);
+}
+
+/* Booth details inside same lightbox */
+.booth-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: fadeIn 0.4s ease;
+}
+
+/* Booth logo consistency — no cropping */
+.booth-info img {
+  max-width: 220px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-top: 15px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+}
+
+/* Responsive booth logo size for smaller screens */
+@media (max-width: 600px) {
+  .booth-info img {
+    max-width: 160px;
+  }
+}
+
+#booth-info {
+  font-size: 15px;
+  color: #333;
+  margin: 10px 20px;
+  line-height: 1.5;
+}
+
+.back-btn {
+  margin-top: 15px;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #333;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.back-btn:hover {
+  background: #555;
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+
+/* Tablet screens */
+@media (max-width: 768px) {
+  #header-logo {
+    width: 35%;
+  }
+
+  .lightbox-content {
+    width: 85%;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  #header-logo {
+    width: 50%;
+  }
+
+  .lightbox-content {
+    width: 90%;
+    padding: 18px;
+  }
+
+  h1 {
+    font-size: 1.3rem;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  .booth-buttons button {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .back-btn {
+    font-size: 13px;
+    padding: 7px 16px;
+  }
+}
+
+/* Fix for horizontal booth images (5, 8, 9, 10) */
+.booth-info img[src*="booth5"],
+.booth-info img[src*="booth8"],
+.booth-info img[src*="booth9"],
+.booth-info img[src*="booth10"] {
+  max-width: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  max-height: 280px !important;
+  border-radius: 12px;
+}
+
+/* Fix: center lightbox perfectly on all devices */
+#lightbox {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: auto;
+  padding: 40px 10px;
+  box-sizing: border-box;
+  inset: 0; /* replaces top/left/width/height for consistency */
+}
+
+/* Ensure the content stays centered even when scrolling */
+.lightbox-content {
+  margin: 60px auto;
+  left: 0;
+  right: 0;
+  transform: translateX(0);
+}
+
+/* Extra safety: mobile centering */
+@media (max-width: 600px) {
+  #lightbox {
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 5%;
+  }
+
+  .lightbox-content {
+    margin: 40px auto;
+    width: 90%;
+    transform: none;
+  }
+}
