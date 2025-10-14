@@ -317,16 +317,48 @@ header {
   }
 }
 
-/* Fix for horizontal booth images (5, 8, 9, 10) */
+/* Horizontal booths — zoom in on left side with scroll */
 .booth-info img[src*="booth5"],
 .booth-info img[src*="booth8"],
 .booth-info img[src*="booth9"],
 .booth-info img[src*="booth10"] {
-  max-width: 100% !important;
   width: auto !important;
-  height: auto !important;
-  max-height: 280px !important;
+  height: 180px !important;
+  max-width: none !important;
+  object-fit: cover !important;
   border-radius: 12px;
+  margin-top: 15px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 600px) {
+  .booth-info img[src*="booth5"],
+  .booth-info img[src*="booth8"],
+  .booth-info img[src*="booth9"],
+  .booth-info img[src*="booth10"] {
+    height: 120px !important;
+  }
+}
+
+/* Wrap image in scrollable container */
+.booth-info {
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: block;               /* fix unwanted centering issue */
+  text-align: left;             /* ensure image starts fully left */
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+/* Smooth scroll on touch for mobile */
+.booth-info::-webkit-scrollbar {
+  height: 8px;
+}
+
+.booth-info::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.2);
+  border-radius: 4px;
 }
 
 /* Fix: center lightbox perfectly on all devices */
@@ -361,5 +393,12 @@ header {
     width: 90%;
     transform: none;
   }
+}
 
+/* Enlarge Booth 3 only */
+.booth-info img[src*="booth3_kampungkamek"] {
+  max-width: 500px !important;
+  min-width: 200px !important;
+  width: 100% !important;
+  height: auto !important;
 }
