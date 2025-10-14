@@ -75,6 +75,7 @@ function showBooth(num) {
   inner.innerHTML = `
     <div class="booth-info">
       <h2>${booth.title}</h2>
+      <p style="font-weight: bold; color: #0c9a9fff; margin-top: 5px;">Booth ${num}</p>
       <img src="${booth.logo}" alt="${booth.title}" style="width:150px; border-radius:10px; margin-top:10px;">
       <button class="back-btn" onclick="backToLevel()">⬅ Back to Booths</button>
     </div>
