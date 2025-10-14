@@ -12,7 +12,7 @@ body {
 /* ------------------ HEADER ------------------ */
 header {
   background: linear-gradient(135deg, #d2ba1f, #f7f7f7);
-  padding: 0;
+  padding: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: center;
@@ -23,7 +23,7 @@ header {
   width: 100%;
   height: auto;
   min-width: 160px;
-  max-width: 450px;
+  max-width: 250px;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
   transition: transform 0.3s ease, filter 0.3s ease;
 }
@@ -268,3 +268,4 @@ header {
   .back-btn { font-size: 13px; padding: 7px 16px; }
   .booth-info img { max-width: 160px; }
 }
+
